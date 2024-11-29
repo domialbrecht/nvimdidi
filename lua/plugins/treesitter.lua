@@ -2,6 +2,8 @@ return { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
+    events = { "BufReadPost", "BufNewFile", "BufWritePre", "VeryLazy" },
+    lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
     dependencies = {
         'nvim-treesitter/nvim-treesitter-context'
     },

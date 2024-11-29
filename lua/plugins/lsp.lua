@@ -87,7 +87,6 @@ return {
                     },
                 },
                 bashls = {},
-                rust_analyzer = {},
             }
 
             require('mason').setup()

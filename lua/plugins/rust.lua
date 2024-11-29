@@ -1,4 +1,33 @@
 return {
+  {
+    "Saecki/crates.nvim",
+    event = { "BufRead Cargo.toml" },
+    opts = {
+      completion = {
+        crates = {
+          enabled = true,
+        },
+      },
+      lsp = {
+        enabled = true,
+        actions = true,
+        completion = true,
+        hover = true,
+      },
+    },
+  },
+
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = { ensure_installed = { "rust", "ron" } },
+  },
+
+  -- Ensure Rust debugger is installed
+  {
+    "williamboman/mason.nvim",
+    optional = true,
+    opts = { ensure_installed = { "codelldb" } },
+  },
     {
         "mrcjkb/rustaceanvim",
         version = vim.fn.has("nvim-0.10.0") == 0 and "^4" or false,

@@ -11,6 +11,9 @@ return {
             },
         },
     },
+    -- Useful status updates for LSP.
+    -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
+    { 'j-hui/fidget.nvim', event = "VeryLazy",       opts = {} },
     { 'Bilal2453/luvit-meta', lazy = true },
     {
         -- Main LSP Configuration
@@ -21,10 +24,6 @@ return {
             { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
             'williamboman/mason-lspconfig.nvim',
             'WhoIsSethDaniel/mason-tool-installer.nvim',
-
-            -- Useful status updates for LSP.
-            -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-            { 'j-hui/fidget.nvim',       opts = {} },
         },
         config = function()
             vim.api.nvim_create_autocmd('LspAttach', {
